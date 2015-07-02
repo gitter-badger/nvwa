@@ -1,5 +1,7 @@
 # Nüwa
 
+[![Join the chat at https://gitter.im/truman-misfit/nvwa](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/truman-misfit/nvwa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a archetype project (or seed project) for building up micro-service. Nüwa, also known as Nügua, is a goddess in ancient Chinese mythology best known for creating mankind and repairing the pillar of heaven. (from [Wikipedia](https://en.wikipedia.org/wiki/N%C3%BCwa))
 
 # Features
