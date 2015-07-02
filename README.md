@@ -94,23 +94,24 @@ override def onEvent(event: String) = {}
 Add the lines below into applicaion.conf:
 
 ```
-# Sharing config
-play.modules.enabled += "com.misfit.microservices.modules.StreamPublisher"
-play.modules.enabled += "com.misfit.microservices.modules.StreamConsumer"
-module.ms.stream.region = "us-east-1"
+# Stream Module
+# ~~~~~
+# Stream module enabled
+play.modules.enabled += "com.misfit.ms.modules.stream.StreamPublisher"
+play.modules.enabled += "com.misfit.ms.modules.stream.StreamConsumer"
 
-# Services registry config for frontend services
-module.ms.publisher.enabled = true
-module.ms.publisher.registry += "ms.backend.stream.mail"
-module.ms.publisher.registry += "ms.backend.stream.log"
-module.ms.publisher.type = "kinesis"
+# You can manually disable publisher or consumer
+# module.ms.module.stream.publisher.enabled = false
+# module.ms.module.stream.consumer.enabled = false
 
-# Services named config for backend services
-module.ms.consumer.enabled = true
-module.ms.consumer.app = "ms.backend.stream.notify"
-module.ms.consumer.registry += "ms.backend.stream.mail"
-module.ms.consumer.registry += "ms.backend.stream.log"
-module.ms.consumer.type = "kinesis"
+# Stream mode and connection info
+module.ms.module.stream.mode = "kinesis"
+module.ms.module.stream.region = "us-east-1"
+module.ms.module.stream.app = "ms.backend.stream.demo"
+
+# Stream jobs
+module.ms.module.stream.jobs += "com.misfit.ms.modules.stream.jobs.PrintLogSampleJob"
+module.ms.module.stream.jobs += "com.misfit.ms.modules.stream.jobs.PrintMailSampleJob"
 ```
 
 * _Step 4_. publish to a specific stream
